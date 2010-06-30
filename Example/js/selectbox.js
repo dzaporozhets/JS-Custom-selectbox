@@ -19,8 +19,11 @@ SelectBox.prototype = {
     options_left : 0,
     select_width : 0,
     
+    // animation
     animation_show : 'slide',
+    animation_show_interval : 0.5,
     animation_hide : 'slide',
+    animation_hide_interval : 0.5,
     
     // select area var
 	select_button_id_text: '',
@@ -54,6 +57,10 @@ SelectBox.prototype = {
     	//animation type ..
     	this.animation_show = params.animation_show ? params.animation_show : this.animation_show;
     	this.animation_hide = params.animation_hide ? params.animation_hide : this.animation_hide;
+
+		//animation interval ..
+    	this.animation_show_interval = params.animation_show_interval ? params.animation_show_interval : this.animation_show_interval;
+    	this.animation_hide_interval = params.animation_hide_interval ? params.animation_hide_interval : this.animation_hide_interval;
     	
         var id = this.id = params.id;
         this.original_selectbox = $(id);
@@ -252,34 +259,34 @@ SelectBox.prototype = {
     	switch(this.animation_hide) {
     		case 'slide':
 		    	Effect.SlideUp(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_hide_interval,
 		            afterFinish: params.afterFinish
 		        });
 		        break;
    			case 'fade':
 				Effect.Fade(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_hide_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
 				
    			case 'blind':
 				Effect.BlindUp(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_hide_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
 				
    			case 'shrink':
 				Effect.Shrink(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_hide_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
 				
    			case 'squish':
 				Effect.Squish(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_hide_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
@@ -292,19 +299,19 @@ SelectBox.prototype = {
 		switch(this.animation_show) {
     		case 'slide':
 		    	Effect.SlideDown(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_show_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
 			case 'appear':
 				Effect.Appear(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_show_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;
 			case 'blind':
 				Effect.BlindDown(params.id, {
-		            duration: 0.5,
+		            duration: this.animation_show_interval,
 		            afterFinish:params.afterFinish
 		        });
 				break;				

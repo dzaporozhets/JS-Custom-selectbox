@@ -1,36 +1,43 @@
 Installation:
-
-- add selectbox.js
-- add selectbox.css
-- change selectbox.css to fit your design specifications
-- create Selectbox object passing right params
-
+	- add selectbox.js
+	- add selectbox.css
+	- change selectbox.css to fit your design specifications
+	- create Selectbox object passing right params
 
 Usage: 
-
-1. LITE
-
-// Example show how call selectbox with params
-document.observe("dom:loaded", function() {	
-	// replace with custom selectbox
-	var languageBox = new SelectBox({
-		id:'language-switch',	// * required
-	});	
-});
-
-
-
-2. CUSTOM
-
-// Example show how call selectbox with params
-document.observe("dom:loaded", function() {	
-	// replace with custom selectbox
-	var languageBox = new SelectBox({
-		id:'language-switch',	// * required
-		animation_show:'slide', // slide, appear, blind
-		animation_hide:'fade',  // slide, fade, blind
-		select_width: 286, 		// new selectbox width
-		options_top: 40, 		// options holder offset
-		options_left: 0, 		// options holder offset
-	});	
-});
+ Just create object of SelectBox class.
+	Ex. var newBox = new SelectBox({ id : 'id of your std selectbox' });
+ Available params passed to SelectBox constructor:
+	id:' selectbox id',				// * required
+ 	animation_show:'slide', 		// slide, appear, blind
+	animation_show_interval: 0.1, 	// 0.1 ... infinity
+	animation_hide:'fade',  		// slide, fade, blind
+	animation_hide_interval: 2.1, 	// 0.1 ... infinity
+	select_width: 286, 				// new selectbox width
+	options_top: 40, 				// options holder offset
+	options_left: 0, 				// options holder offset
+	
+Examples: 	
+	1. LITE
+	// Example show how call selectbox with params
+	document.observe("dom:loaded", function() {	
+		// replace with custom selectbox
+		var languageBox = new SelectBox({
+			id:'language-switch',	// * required
+		});	
+	});
+	2. CUSTOM	
+	// Example show how call selectbox with params
+	document.observe("dom:loaded", function() {	
+		// replace with custom selectbox
+		var languageBox = new SelectBox({
+			id:'language-switch',	// * required
+			animation_show:'slide', // slide, appear, blind
+			animation_show_interval: 0.1, // 0.1 ... infinity
+			animation_hide:'fade',  // slide, fade, blind
+			animation_hide_interval: 2.1, // 0.1 ... infinity
+			select_width: 286, 		// new selectbox width
+			options_top: 40, 		// options holder offset
+			options_left: 0, 		// options holder offset
+		});	
+	});
