@@ -1,0 +1,91 @@
+.outtaHere {
+	position:absolute;
+	left:-3000px;
+}
+
+
+.select-area {
+	position:relative;
+	height:29px;
+	float:left;
+	color:#363636;
+	font-size:24px;
+	line-height:42px;
+}
+
+.select-area .left {
+	position:absolute;
+	top:0;
+	left:0;
+	width:0;
+	height:100%;
+}
+
+.select-area a.custom-select-button {
+	position:absolute;
+	top:2px;
+	left:252px;
+	width:32px;
+	height:35px;
+	/* background:url(../images/bg-select-button.gif) no-repeat 100% 0; */
+}
+
+.select-area .center {
+	height:40px;
+	line-height:42px;
+	display:block;
+	width:241px;
+	/* 	background:url(../images/bg-select.gif); */
+	padding:0 32px 0 13px;
+}
+
+.options-invisible,.options-visible {
+	position:absolute;
+	z-index:30;
+	font-size:24px;
+}
+
+.options-invisible {
+	display:none;
+}
+
+.options-visible ul {
+	overflow:hidden;
+	list-style:none;
+	border:1px solid #8e959b;
+	padding:5px;
+	margin: 0;
+}
+
+.options-visible ul li {
+	height:1%;
+	overflow:hidden;
+	vertical-align:top;
+}
+
+.options-visible a {
+	color:#363636;
+	overflow:hidden;
+	text-decoration:none;
+	display:block;
+	height:1%;
+	padding:2px 4px;
+}
+
+.options-visible a:hover {
+	background-color:#2a3235;
+	color:#fff;
+	text-decoration:none;
+}
+
+.select-area .center img,.options-visible a img {
+	float:left;
+}
+
+
+/**	
+ *	example css - can remove
+ */ 
+#language-switch {
+	font-size:24px;
+}
