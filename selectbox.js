@@ -91,6 +91,7 @@ SelectBox.prototype = {
         var self = this;
         $(button_id).observe('click', function (event) {
             self.showOptions(event, self);
+            Event.stop(event);
         });
     },
 
@@ -221,7 +222,7 @@ SelectBox.prototype = {
             _elem.style.top = self.findPosY(divArea) + _selectHeight + 'px';
             _elem.className = _elem.className.replace(self.option_holder_invisible_class_text, '');
             _elem.className += " "+self.option_holder_visible_class_text;
-			_elem.setStyle({display:'none'});
+			$(_elem.id).setStyle({display:'none'});
             _elem.style.left = self.findPosX(divArea) + self.options_left + 'px';
             divArea.className += " "+self.select_area_active_class_text;
             self._active = divArea;
@@ -238,7 +239,7 @@ SelectBox.prototype = {
             self.animateShow({
             	id : self.option_holder_id_text,
             	afterFinish: function () {
-					_elem.setStyle({display:'block'});
+					$(_elem.id).setStyle({display:'block'});
             	}
             });
         }
