@@ -13,6 +13,7 @@ SelectBox.prototype = {
     selectText: "please select",
     active_select: null,
     _active: false,
+    all_selects: false,
     
     //positions
     options_top : 0,
@@ -33,6 +34,9 @@ SelectBox.prototype = {
 	select_area_active_class_text: '',
 	select_text_id_text: '',
 
+
+	// functions on events
+		
 	
 	// options area var
     option_id_text: '',
@@ -83,6 +87,7 @@ SelectBox.prototype = {
         this.createMarkup(id);
         this.initSelectEvent(this.select_button_id_text);
         this.initOptionsEvent($(id));
+        this.all_selects = true;
 
     },
 
@@ -104,10 +109,12 @@ SelectBox.prototype = {
                 $(self.option_id_text + w).observe('click', function (event) {
                     self.showOptions(event, self);
                     self.selectMe(selectBox, this.id.replace(self.option_id_text, ''));
+                    Event.stop(event);
                 });
             }
         }
     },
+
 
     // create dom element with for custom selectbox 
     createMarkup: function (id) {
@@ -350,7 +357,7 @@ SelectBox.prototype = {
             if (textVar.childNodes.length > 1) textVar.removeChild(textVar.childNodes[0]);
             textVar.replaceChild(newText, textVar.childNodes[0]);
         }
-        if (selectField.onchange && all_selects) {
+        if (selectField.onchange && this.all_selects) {
             eval(selectField.onchange());
         }
     },
